@@ -17,6 +17,11 @@
     "prepare": "run-s build",
     "predeploy": "cd example && npm install && npm run build"
   },
+  "release-it": {
+    "github": {
+      "release": true
+    }
+  },
   "peerDependencies": {
     "react": "^16.0.0"
   },
