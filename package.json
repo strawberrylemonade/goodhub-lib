@@ -11,6 +11,11 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/strawberrylemonade"
   },
+  "release-it": {
+    "git": {
+      "requireCleanWorkingDir": false
+    }
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.ts",
