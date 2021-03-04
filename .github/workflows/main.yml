@@ -28,6 +28,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           
+      - name: Add token to .npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${AUTH_TOKEN}" >> .npmrc
+        env:  
+          AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: git config
         run: |
           git config user.name "${GITHUB_ACTOR}"
