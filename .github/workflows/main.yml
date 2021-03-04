@@ -35,4 +35,4 @@ jobs:
           npm run build
           npx release-it minor --ci
         env:
-         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+         NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
