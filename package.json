@@ -1,6 +1,6 @@
 {
   "name": "@strawberrylemonade/goodhub-lib",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A shared library for GoodHub types, shared functions and services. Backend & Frontend.",
   "author": "strawberrylemonade",
   "license": "MIT",
