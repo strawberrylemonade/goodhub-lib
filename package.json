@@ -1,10 +1,10 @@
 {
-  "name": "goodhub-shared",
+  "name": "goodhub-lib",
   "version": "1.0.0",
-  "description": "Made with create-react-library",
+  "description": "A shared library for GoodHub types, shared functions and services. Backend & Frontend.",
   "author": "strawberrylemonade",
   "license": "MIT",
-  "repository": "strawberrylemonade/goodhub-shared",
+  "repository": "strawberrylemonade/goodhub-lib",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.ts",
