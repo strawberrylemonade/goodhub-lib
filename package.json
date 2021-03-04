@@ -53,5 +53,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "kvdb.io": "^1.0.5"
+  }
 }
