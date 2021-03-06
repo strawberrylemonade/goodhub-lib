@@ -11,6 +11,11 @@ export enum IPostType {
   Other = 'Other'
 }
 
+export enum IPostIdentity {
+  Individual = 'Individual',
+  Organisation = 'Organisation'
+}
+
 type IHero = IHeroImage;
 
 export interface IHeroImage {
@@ -28,7 +33,7 @@ export interface IPost {
   postedBy: string,
   origin: IPostOrigin,
 
-  postedIdentity: string
+  postedIdentity: IPostIdentity
   type: IPostType
   tags: string[]
 
