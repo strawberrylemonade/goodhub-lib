@@ -76,15 +76,30 @@ export class DatabaseError extends CustomError {
 
 export const withTransaction = (func: (...args: any[]) => any, name: string) => {
   return async (...args: any[]) => {
-    const transaction = Sentry.startTransaction({ name });
-    Sentry.configureScope(scope => scope.setSpan(transaction));
+    const existingTransaction = Sentry.getCurrentHub().getScope()?.getTransaction();
+
+    const transaction = (() => {
+      if (existingTransaction) return existingTransaction;
+
+      const transaction = Sentry.startTransaction({ name });
+      Sentry.configureScope(scope => scope.setSpan(transaction));
+      return transaction;
+    })()
+
+    const process = transaction.startChild({ description: name });
+
     try {
-      const response = await func(...args, transaction)
-      transaction.finish();
+      const response = await func(...args, transaction);
+
+      process.finish();
+      if (!existingTransaction) transaction.finish();
+
       return response;
     } catch (e) {
       console.error(e);
       Sentry.captureException(e);
+
+      process.finish();
       throw e;
     }
   }
