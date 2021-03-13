@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/react';
+
 export class CustomError extends Error {
   type: string
   code: number
@@ -69,5 +71,21 @@ export class DatabaseError extends CustomError {
     super(message)
     this.type = 'DatabaseError';
     this.code = 500;
+  }
+}
+
+export const withTransaction = (func: (...args: any[]) => any, name: string) => {
+  return async (...args: any[]) => {
+    const transaction = Sentry.startTransaction({ name });
+    Sentry.configureScope(scope => scope.setSpan(transaction));
+    try {
+      const response = await func(...args, transaction)
+      transaction.finish();
+      return response;
+    } catch (e) {
+      console.error(e);
+      Sentry.captureException(e);
+      throw e;
+    }
   }
 }
