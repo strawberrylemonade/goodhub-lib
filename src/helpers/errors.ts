@@ -1,4 +1,4 @@
-import * as Sentry from '@sentry/react';
+import * as Sentry from '@sentry/core';
 
 export class CustomError extends Error {
   type: string

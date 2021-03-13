@@ -64,7 +64,6 @@
     "dist"
   ],
   "dependencies": {
-    "@sentry/react": "^6.2.2",
-    "kvdb.io": "^1.0.5"
+    "@sentry/core": "^6.2.2"
   }
 }
