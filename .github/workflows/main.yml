@@ -30,12 +30,13 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           
       - name: configure NPM
-        run: npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
 
       - name: Install node modules, build & release
         run: |
           npm install
           npm run build
           npx release-it minor --ci
-        env:
-         NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
