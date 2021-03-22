@@ -30,7 +30,7 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           
       - name: configure NPM
-        run: cp .npmrc.template .nprc
+        run: npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
 
       - name: Install node modules, build & release
         run: |
@@ -39,6 +39,3 @@ jobs:
           npx release-it minor --ci
         env:
          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-         
-      - name: Clean up NPM
-        run: rm .nprc
