@@ -21,8 +21,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "build": "NPM_TOKEN=none microbundle-crl --no-compress --format modern,cjs",
+    "start": "NPM_TOKEN=none microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "predeploy": "cd example && npm install && npm run build"
   },

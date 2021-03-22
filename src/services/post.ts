@@ -25,6 +25,15 @@ export interface IHeroImage {
 
 export interface IConnection {}
 
+export interface IComment {
+  id: string
+  parentId: string
+  content: Content
+  replyId?: string
+  postedIdentity: IPostIdentity
+  postedAt: Date
+}
+
 export interface IPost {
   id: string,
   projectId: string,
@@ -36,6 +45,7 @@ export interface IPost {
   postedIdentity: IPostIdentity
   type: IPostType
   tags: string[]
+  likes?: string[]
 
   text: Content
   summary?: string

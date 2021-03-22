@@ -16,10 +16,8 @@ export type IImage = {
 }
 
 export interface ParagraphBlock {
-  type: 'paragraph',
-  data: {
-    text: string
-  }
+  type: 'unstyled';
+  text: string
 }
 
 export type Block = ParagraphBlock;
