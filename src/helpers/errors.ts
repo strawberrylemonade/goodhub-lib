@@ -58,6 +58,14 @@ export class NotAuthorisedError extends CustomError {
   }
 }
 
+export class ForbiddenError extends CustomError {
+  constructor(message: string) {
+    super(message)
+    this.type = 'ForbiddenError';
+    this.code = 403;
+  }
+}
+
 export class NotFoundError extends CustomError {
   constructor(message: string) {
     super(message)

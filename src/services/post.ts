@@ -25,18 +25,24 @@ export interface IHeroImage {
 
 export interface IConnection {}
 
+export enum IPostParent {
+  Feed = 'Feed',
+  Forum = 'Forum'
+}
+
 export interface IComment {
   id: string
-  parentId: string
   content: Content
   replyId?: string
   postedIdentity: IPostIdentity
+  postedBy: string
   postedAt: Date
 }
 
 export interface IPost {
   id: string,
   projectId: string,
+  parentId: IPostParent
   organisationId: string,
   postedAt: Date,
   postedBy: string,
@@ -45,8 +51,10 @@ export interface IPost {
   postedIdentity: IPostIdentity
   type: IPostType
   tags: string[]
+  keywords?: string[]
   likes?: string[]
-
+  comments?: string[]
+  title?: string
   text: Content
   summary?: string
   hero?: IHero
