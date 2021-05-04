@@ -1,11 +1,11 @@
 import { Content, IImage } from './content';
 import { IProject } from './project';
 
-interface Color {
-  rgb: [number, number, number],
-  hsl: [number, number, number],
-  hex: string
-}
+// interface Color {
+//   rgb: [number, number, number],
+//   hsl: [number, number, number],
+//   hex: string
+// }
 
 export interface IExternalLink {
   name: string
@@ -29,12 +29,11 @@ export interface IWebsiteHero {
 export interface IWebsiteConfiguration {
   id: string
   name: string
+  description: string
   verified: boolean
   alert?: string
   slug?: string
   domainName?: string
-  primaryColor: Color
-  secondaryColor: Color
   logos?: {
     outline: string
     small: string
@@ -45,6 +44,7 @@ export interface IWebsiteConfiguration {
     updates: boolean
     contact: boolean
   }
+  brandColors: [string, string, string, string]
   about?: Content
   hero?: IWebsiteHero
   featuredProjects?: IProject[]
@@ -53,6 +53,10 @@ export interface IWebsiteConfiguration {
     text: Content
     items: IImage[]
   }
+  contactPhoneNumber: string
+  contactAddress: string
+  UKCharityNumber: string
+  tags: ITag[]
 }
 
 export enum ITag {
@@ -112,8 +116,31 @@ export const Tags = [
 ]
 
 export interface IOrganisation {
-  id: string,
+  id: string
   name: string
+  slug?: string
+  domainName?: string
   people: string[],
   profilePicture?: IImage
+}
+
+export interface IExtendedOrganisation {
+  id: string
+  name: string
+  slug?: string
+  domainName?: string
+  brandColors: [string, string, string, string]
+  description: string
+  profilePicture?: IImage
+  verified: boolean
+  hero?: IWebsiteHero
+  about?: Content
+  alert?: string
+  featuredProjects?: IProject[]
+  externalLinks?: IExternalLink[]
+  contactAddress: string
+  contactPhoneNumber: string
+  UKCharityNumber: string
+  tags: ITag[]
+  people: string[]
 }
