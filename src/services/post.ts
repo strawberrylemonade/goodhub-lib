@@ -32,7 +32,7 @@ export enum IPostParent {
 
 export interface IComment {
   id: string
-  content: Content
+  text: string
   replyId?: string
   postedIdentity: IPostIdentity
   postedBy: string
@@ -53,7 +53,7 @@ export interface IPost {
   tags: string[]
   keywords?: string[]
   likes?: string[]
-  comments?: string[]
+  comments?: IComment[]
   title?: string
   text: Content
   summary?: string
