@@ -8,6 +8,7 @@ import { IProject } from './project';
 // }
 
 export interface IExternalLink {
+  id: string
   name: string
   description: string
   url: string
