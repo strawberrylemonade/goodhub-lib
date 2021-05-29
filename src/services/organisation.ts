@@ -48,7 +48,7 @@ export interface IWebsiteConfiguration {
   brandColors: [string, string, string, string]
   about?: Content
   hero?: IWebsiteHero
-  featuredProjects?: IProject[]
+  featuredProjects?: string[]
   externalLinks?: IExternalLink[]
   footer?: {
     text: Content
@@ -137,7 +137,7 @@ export interface IExtendedOrganisation {
   hero?: IWebsiteHero
   about?: Content
   alert?: string
-  featuredProjects?: IProject[]
+  featuredProjects?: string[]
   externalLinks?: IExternalLink[]
   contactAddress: string
   contactPhoneNumber: string
