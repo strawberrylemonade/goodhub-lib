@@ -1,5 +1,4 @@
 import { Content, IImage } from './content';
-import { IProject } from './project';
 
 // interface Color {
 //   rgb: [number, number, number],
